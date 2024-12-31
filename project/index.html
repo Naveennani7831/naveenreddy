@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .main{
+            width: 50%;
+            min-height: 300px;
+            text-align: center;
+          background-color: aqua;
+        }
+        .btn{
+            display: flex;
+            gap:50px;
+        }
+        .btn button{
+            padding: 5px 30px;
+        }
+    </style>
+</head>
+<body>
+    <div id="main" class="main"> hello </div><br><br>
+  <div class="btn">
+    <button>1</button>
+    <button>2</button>
+    <button>3</button>
+  </div>
+    <script>
+        obj = [
+            "https://next-images.123rf.com/index/_next/image/?url=https://assets-cdn.123rf.com/index/static/assets/top-section-bg.jpeg&w=3840&q=75",
+            "https://media.istockphoto.com/id/505221662/photo/elephants-in-river.jpg?s=612x612&w=0&k=20&c=pd0-eIKu1knUVrwVJRqfIK8t_aFqSk6vnxnuZLFGvh4=",
+            "https://media.istockphoto.com/id/511593366/photo/tropical-jungle.jpg?s=612x612&w=0&k=20&c=PCkxPcz5srdnYoUXiSOZWuGeq0kAe2iH3Xkm4mswdHA="
+        ]
+
+      display = document.getElementById("main")
+        btn = Array.from(document.getElementsByTagName("button"))
+        console.log(btn)
+
+        btn.map((item,index)=> (
+            item.addEventListener("click",()=>{
+             text = item.innerText
+
+
+             display.innerHTML = "";
+             const img = document.createElement("img")
+             img.src= `${obj[index]}`
+             img.width = 300
+
+             display.append(img)
+             
+        })
+
+        ))
+    </script>
+</body>
+</html>

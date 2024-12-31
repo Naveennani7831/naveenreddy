@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <form>
+      <label>username</label>
+      <input id="name" type="text" /><br /><br />
+      <label for="">password</label>
+      <input id="password" type="text" /><br /><br />
+      <label for="">email</label>
+      <input id="email" type="text" /><br /><br />
+      <input type="submit" value="register" />
+    </form>
+
+    <script>
+      form = Array.from(document.forms);
+      input = document.querySelectorAll("input");
+
+      form.map((item) =>
+        item.addEventListener("submit", (e) => {
+          e.preventDefault();
+          name = document.getElementById("name").value;
+          password = document.getElementById("password").value;
+          email = document.getElementById("email").value;
+          if ((name = "" || name.length >= 12)) {
+            alert("enter deatils correctly");
+          }
+
+          if (password.length < 10) {
+            alert("length is not matched");
+          }
+          const emailPattern =
+            /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
+          if (!emailPattern.test(email)) {
+            alert("enter valid email");
+          }
+
+          console.log('form submitted' , name,password,email)
+        })
+      );
+    </script>
+  </body>
+</html>

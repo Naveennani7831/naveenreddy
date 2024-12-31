@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button onclick="Start()">Start</button>
+    <h1 id="he">hello</h1>
+    <button onclick="Stop()">Stop</button>
+
+    <script>
+        // Declare a variable to store the timeout ID
+        let timeoutId;
+
+        function Start() {
+            // Update the <h1> element after 2 seconds
+            timeoutId = setInterval(() => {
+                const date = new Date();
+                const he = document.getElementById("he"); // Correctly select the <h1> element
+                he.innerHTML = "hello7878 - " + date.toLocaleTimeString(); // Update content
+                console.log(date.toLocaleDateString());
+            }, 1000); // Set a delay of 2000ms (2 seconds)
+        }
+
+        function Stop() {
+            // Clear the timeout if it exists
+            clearInterval(timeoutId);
+            console.log("Timeout cleared!");
+        }
+    </script>
+</body>
+</html>
